@@ -31,7 +31,10 @@ namespace Deck_Builder__Freelance_
         {
             string[] decks = Directory.GetFiles(deckDir);
             foreach (string deck in decks)
+            {
+                //var x = deck.Substring(0, deck.IndexOf('.'));
                 listDecks.Items.Add(deck);
+            }
         }
 
         private void save()
@@ -42,13 +45,20 @@ namespace Deck_Builder__Freelance_
             if (!Directory.Exists(deckDir))
                 Directory.CreateDirectory(deckDir);
             if (currentDeck != "")
-                File.WriteAllText(currentDeck + ".txt", deckString);
+                File.WriteAllText(currentDeck, deckString);
+
+            // Score
+            string score = lWin.Text + "\n";
+            score += lLoss.Text;
+            score += lRatio.Text;
+            File.WriteAllText(score, deckString);
         }
 
         private void updateCounters()
         {
             lWin.Text = win.ToString();
             lLoss.Text = loss.ToString();
+            lRatio.Text = ((double)win / loss).ToString();
         }
 
         private void bWinInc_Click(object sender, EventArgs e)
@@ -126,6 +136,7 @@ namespace Deck_Builder__Freelance_
         private void bNewDeck_Click(object sender, EventArgs e)
         {
             string input = Interaction.InputBox("Prompt", "Title", "Default");
+            input = deckDir + input;
             if (!listDecks.Items.Contains(input))
                 listDecks.Items.Add(input);
         }
@@ -139,9 +150,10 @@ namespace Deck_Builder__Freelance_
         private void listDecks_SelectedIndexChanged(object sender, EventArgs e)
         {
             save();
+            listDeck.Items.Clear();
             if (listDecks.SelectedItems != null)
-                currentDeck = listDecks.SelectedItems[0].ToString();
-            if (currentDeck != "" || currentDeck != null)
+                currentDeck = listDecks.SelectedItem.ToString();
+            if ((currentDeck != "" || currentDeck != null) && File.Exists(currentDeck))
             {
                 string[] cards = File.ReadAllLines(currentDeck);
                 foreach (string card in cards)

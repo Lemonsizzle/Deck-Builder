@@ -42,6 +42,10 @@
             this.listDecks = new System.Windows.Forms.ListBox();
             this.bDelete = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lRatio = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.bLossDec = new System.Windows.Forms.Button();
             this.bWinDec = new System.Windows.Forms.Button();
             this.lLoss = new System.Windows.Forms.Label();
@@ -198,6 +202,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lRatio);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.bLossDec);
             this.groupBox3.Controls.Add(this.bWinDec);
             this.groupBox3.Controls.Add(this.lLoss);
@@ -210,6 +218,42 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "W/L Tracker";
+            // 
+            // lRatio
+            // 
+            this.lRatio.AutoSize = true;
+            this.lRatio.Location = new System.Drawing.Point(79, 51);
+            this.lRatio.Name = "lRatio";
+            this.lRatio.Size = new System.Drawing.Size(37, 15);
+            this.lRatio.TabIndex = 9;
+            this.lRatio.Text = "Ratio:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(79, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Ratio:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(132, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Losses:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 15);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Wins:";
             // 
             // bLossDec
             // 
@@ -234,7 +278,7 @@
             // lLoss
             // 
             this.lLoss.AutoSize = true;
-            this.lLoss.Location = new System.Drawing.Point(131, 35);
+            this.lLoss.Location = new System.Drawing.Point(138, 51);
             this.lLoss.Name = "lLoss";
             this.lLoss.Size = new System.Drawing.Size(38, 15);
             this.lLoss.TabIndex = 3;
@@ -243,7 +287,7 @@
             // lWin
             // 
             this.lWin.AutoSize = true;
-            this.lWin.Location = new System.Drawing.Point(24, 35);
+            this.lWin.Location = new System.Drawing.Point(24, 51);
             this.lWin.Name = "lWin";
             this.lWin.Size = new System.Drawing.Size(38, 15);
             this.lWin.TabIndex = 2;
@@ -418,5 +462,9 @@
         private Button bD6;
         private Button bDX;
         private Button bD4;
+        private Label lRatio;
+        private Label label3;
+        private Label label2;
+        private Label label1;
     }
 }
