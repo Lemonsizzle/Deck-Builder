@@ -10,6 +10,7 @@ namespace Deck_Builder__Freelance_
 
         string deckDir = "Decks/";
         string currentDeck = "";
+        string scoreFile = "Score";
         string format = "n: name";
         int cardMax = 9;
 
@@ -35,6 +36,11 @@ namespace Deck_Builder__Freelance_
                 //var x = deck.Substring(0, deck.IndexOf('.'));
                 listDecks.Items.Add(deck);
             }
+
+            string[] scores = File.ReadAllLines(scoreFile);
+            win = int.Parse(scores[0]);
+            loss = int.Parse(scores[1]);
+            updateCounters();
         }
 
         private void save()
@@ -50,8 +56,9 @@ namespace Deck_Builder__Freelance_
             // Score
             string score = lWin.Text + "\n";
             score += lLoss.Text;
-            score += lRatio.Text;
-            File.WriteAllText(score, deckString);
+            //score += lRatio.Text;
+            //lTest.Text = deckString;
+            File.WriteAllText(scoreFile, score);
         }
 
         private void updateCounters()
